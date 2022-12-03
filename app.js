@@ -19,19 +19,18 @@ const app = express();
 require("./config")(app);
 
 const capitalize = require("./utils/capitalize");
-const projectName = "ih-ironfox";
+const projectName = "ih-kitsune";
 
 app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
 
 // 👇 Start handling routes here
-const exploreAnimeRoute = require("./routes/explore.anime.routes");
-app.use("/", exploreAnimeRoute);
+const indexRoutes = require('./routes/index.routes');
+const animesRoutes = require('./routes/animes.routes');
+const authRoutes = require('./routes/auth.routes');
+app.use('/', indexRoutes);
+app.use('/', animesRoutes);
+app.use('/', authRoutes);
 
-const animeRoutes = require("./routes/anime.routes");
-app.use("/anime", animeRoutes);
-
-const authRoutes = require("./routes/auth.routes");
-app.use("/auth", authRoutes);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
