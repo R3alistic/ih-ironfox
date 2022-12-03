@@ -24,10 +24,13 @@ const session = require("express-session");
 // ℹ️ MongoStore in order to save the user session in the database
 // https://www.npmjs.com/package/connect-mongo
 const MongoStore = require("connect-mongo");
+const kitsu = require('kitsu');
+
 
 // Connects the mongo uri to maintain the same naming structure
 const MONGO_URI =
-  process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/ih-kitsune";
+  process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/ih-ironfox";
+
 
 // Middleware configuration
 module.exports = (app) => {

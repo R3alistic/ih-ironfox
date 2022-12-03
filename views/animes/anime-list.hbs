@@ -2,16 +2,17 @@
 
 
 <div>
-{{#each animes}}
+    {{#each animes}}
 
-<h3>{{ }}</h3>
-<p>By: {{ }}</p>
-<p>Rating: {{ }} </p>
+    <div>
+        <h3>{{titles.en}}</h3>
+        <h6>{{titles.ja_jp}}</h6>
+        <h3><img src="{{posterImage.tiny}}"></h3>
+        {{!-- <p>By: {{ }}</p>
+        <p>Rating: {{ }} </p> --}}
 
-<a href="/animes/{{_id}}">See details</a>
+        <button><a href="/animes/{{id}}">See details</a></button>
+    </div>
 
-<a href="/animes/{{_id}}/edit">Edit</a>
-
-
-{{/each}}
+    {{/each}}
 </div>
