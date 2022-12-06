@@ -36,10 +36,10 @@ const api = new Kitsu()
 // ----- CRUD - Read ------
 
 // list of all anime
-router.get('/animes', async (req, res, next) => {
+router.get('/anime', async (req, res, next) => {
   try {
     const response = await api.get('anime', {params: {filter: {status: 'upcoming'}}});
-    res.render('animes/anime-list', {animes: response.data});
+    res.render('anime/anime-list', {animes: response.data});
   } catch (error) {
     console.log('error', error);
     // calling the error middleware
@@ -47,17 +47,17 @@ router.get('/animes', async (req, res, next) => {
   }
 });
 
-// router.get('/animes/:animeId', async (req, res, next) => {
-//   try {
-//     // console.log(req.params);
-//     const { animeId } = req.params;
-
-//     const anime = await Anime.findById(animeId);
-//     res.render('animes/anime-details', anime);
-//   } catch (error) {
-//     next(error);
-//   }
-// });
+router.get(`/anime/:slug`, async (req, res, next) => {
+  try {
+    // console.log(req.params);
+    const slug = req.params.slug;
+    const anime = await Anime.findOne({slug});
+    res.render('anime/anime-details', anime);
+  } catch (error) {
+    console.log('error', error);
+    next(error);
+  }
+});
 
 // // ------- CRUD - Update ------
 
