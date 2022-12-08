@@ -4,11 +4,11 @@
     {{#each animes}}
 
     <div class="card" style="width: 18rem;">
-  <img src="{{posterImage.tiny}}" class="card-img-top" alt="image">
+  <img src="{{attributes.posterImage.tiny}}" class="card-img-top" alt="image">
   <div class="card-body">
-    <h5 class="card-title">{{titles.en}}</h5>
-    <p class="card-text">{{titles.ja_jp}}</p>
-    <a href="/anime/{{slug}}" class="btn btn-primary">See details</a>
+    <h5 class="card-title">{{attributes.titles.en}}</h5>
+    <p class="card-text">{{attributes.titles.ja_jp}}</p>
+    <a href="/anime/{{attributes.slug}}" class="btn btn-primary">See details</a>
   </div>
 </div>
 
