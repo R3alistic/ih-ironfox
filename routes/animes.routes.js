@@ -2,15 +2,17 @@ const express = require('express');
 const Kitsu = require("kitsu");
 const router = express.Router();
 const Anime = require('../models/Anime.model');
-const api = new Kitsu()
+const ApiService = require('../services/api.service');
+const apiService = new ApiService();
 
 // ----- CRUD - Read ------
 
 // list of all anime
 router.get('/anime', async (req, res, next) => {
   try {
-    const response = await api.get('anime', {params: {filter: {status: 'upcoming'}}});
-    res.render('anime/anime-list', {animes: response.data});
+    const response = await apiService.getTop30();
+    console.log(response)
+    res.render('anime/anime-list', {animes: response});
   } catch (error) {
     console.log('error', error);
     // calling the error middleware
