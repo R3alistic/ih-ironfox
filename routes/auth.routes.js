@@ -3,7 +3,8 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const User = require('../models/User.model');
 const mongoose = require('mongoose');
-const { isLoggedIn, isLoggedOut } = require('../middleware/route-guard');
+const isLoggedIn  = require('../middleware/isLoggedIn.js');
+const  isLoggedOut  = require('../middleware/isLoggedOut.js');
 const passport = require('passport');
 const saltRounds = 10;
 
