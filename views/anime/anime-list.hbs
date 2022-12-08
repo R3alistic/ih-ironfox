@@ -1,18 +1,23 @@
-<h1>Animes</h1>
-
+<hr>
 
 <div>
     {{#each animes}}
 
-    <div>
-        <h3>{{titles.en}}</h3>
-        <h6>{{titles.ja_jp}}</h6>
-        <h3><img src="{{posterImage.tiny}}"></h3>
-        {{!-- <p>By: {{ }}</p>
-        <p>Rating: {{ }} </p> --}}
-
-        <button><a href="/anime/{{slug}}">See details</a></button>
-    </div>
+    <div class="card" style="width: 18rem;">
+  <img src="{{posterImage.tiny}}" class="card-img-top" alt="image">
+  <div class="card-body">
+    <h5 class="card-title">{{titles.en}}</h5>
+    <p class="card-text">{{titles.ja_jp}}</p>
+    <a href="/anime/{{slug}}" class="btn btn-primary">See details</a>
+  </div>
+</div>
 
     {{/each}}
 </div>
+
+
+
+
+
+
+
