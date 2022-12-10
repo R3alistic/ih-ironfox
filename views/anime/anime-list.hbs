@@ -1,10 +1,10 @@
 <hr>
 
-<div>
-    {{#each animes}}
+  <div class="row" id="food">
+   {{#each animes}}
 
-    <div class="card" style="width: 18rem;">
-  <img src="{{attributes.posterImage.tiny}}" class="card-img-top" alt="image">
+    <div class="card m-2" style="width: 18rem;">
+  <img src="{{attributes.posterImage.tiny}}" class="card-img-top" alt="Anime">
   <div class="card-body">
     <h5 class="card-title">{{attributes.titles.en}}</h5>
     <p class="card-text">{{attributes.titles.ja_jp}}</p>
@@ -12,13 +12,6 @@
   </div>
 </div>
 
-    {{/each}}
-</div>
-
-
-
-
-
-
-
-
+      {{/each}}
+  </div>
+ 
