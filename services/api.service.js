@@ -9,7 +9,7 @@ class ApiService {
             headers: { "Accept-Encoding": "*" } 
         });
     }
-    getTop30 = async () => {
+    getTop50 = async () => {
         const number = 5;
         const allData = []
         let res = '';
@@ -24,6 +24,14 @@ class ApiService {
         }
     return allData
     }
+    getAnimeDetails = async (slug) => {
+        const response =  await this.api.get(`/anime?filter[slug]=${slug}`);
+        return response.data.data[0]
+    }
+    // addFavorite = async () => {
+    //     const allFavorites = [];
+    //     const response = await this.api.get()
+    // }
 }
 
 module.exports = ApiService;

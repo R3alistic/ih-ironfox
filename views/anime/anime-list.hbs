@@ -1,17 +1,16 @@
 <hr>
 
-  <div class="row" id="food">
-   {{#each animes}}
+<div class="row" id="food">
+  {{#each animes}}
 
-    <div class="card m-2" style="width: 18rem;">
-  <img src="{{attributes.posterImage.tiny}}" class="card-img-top" alt="Anime">
-  <div class="card-body">
-    <h5 class="card-title">{{attributes.titles.en}}</h5>
-    <p class="card-text">{{attributes.titles.ja_jp}}</p>
-    <a href="/anime/{{attributes.slug}}" class="btn btn-primary">See details</a>
+  <div class="card m-2" style="width: 15rem;">
+    <img src="{{attributes.posterImage.large}}" class="card-img-top" alt="Anime">
+    <div class="card-body">
+      <h5 class="card-title">{{attributes.titles.en}}</h5>
+      <p class="card-text">{{attributes.titles.ja_jp}}</p>
+      <a href="/anime/{{attributes.slug}}" class="btn btn-primary">See details</a>
+    </div>
   </div>
+
+  {{/each}}
 </div>
-
-      {{/each}}
-  </div>
- 

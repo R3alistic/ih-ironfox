@@ -10,8 +10,8 @@ const apiService = new ApiService();
 // list of all anime
 router.get('/anime', async (req, res, next) => {
   try {
-    const response = await apiService.getTop30();
-    console.log(response)
+    const response = await apiService.getTop50();
+    // console.log(response)
     res.render('anime/anime-list', {animes: response});
   } catch (error) {
     console.log('error', error);
@@ -23,9 +23,11 @@ router.get('/anime', async (req, res, next) => {
 router.get(`/anime/:slug`, async (req, res, next) => {
   try {
     // console.log(req.params);
-    const slug = req.params.slug;
-    const anime = await Anime.findOne({slug});
-    res.render('anime/anime-details', anime);
+    const animeInfo = req.params.slug;
+    const response = await apiService.getAnimeDetails(animeInfo)
+    const {attributes} = response
+
+    res.render('anime/anime-details', attributes);
   } catch (error) {
     console.log('error', error);
     next(error);
