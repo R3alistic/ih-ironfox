@@ -1,22 +1,35 @@
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
+  <img class="w3-image" src="https://res.cloudinary.com/dbqvnclyu/image/upload/v1670687385/WallpaperDog-20511833_bcms07.jpg" alt="shinshan" width="1600" height="800">
+  <div class="w3-display-bottomleft w3-padding-large w3-opacity">
+
+  </div>
+</header>
+
+<hr>
+
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
-		<form action="#">
-			<h1>Create Account</h1>
+		<form class="form1" action="/profile">
+			
+			<h1>Create Account Through</h1>
 			<div class="social-container">
 				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
 				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
 				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			</div>
-			<span>or use your email for registration</span>
+		
+			<span>Use your email for registration</span>
 			<input type="text" placeholder="Name" />
 			<input type="email" placeholder="Email" />
 			<input type="password" placeholder="Password" />
 			<button>Sign Up</button>
 		</form>
+
 	</div>
 	<div class="form-container sign-in-container">
-		<form action="/">
-			<h1>Sign in</h1>
+		<form class = "form1" action="/profile">
+			<h1>Log in</h1>
 			<div class="social-container">
 				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
 				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
@@ -26,12 +39,15 @@
 			<input type="email" placeholder="Email" />
 			<input type="password" placeholder="Password" />
 			<a href="#">Forgot your password?</a>
-			<button>Sign In</button>
+			<button>Log In</button>
+
 			{{#if errorMessage}}
 			<p class="error">{{errorMessage}}</p>
 			{{/if}}
+
 		</form>
 	</div>
+
 	<div class="overlay-container">
 		<div class="overlay">
 			<div class="overlay-panel overlay-left">
@@ -41,9 +57,11 @@
 			</div>
 			<div class="overlay-panel overlay-right">
 				<h1>Hello, Friend!</h1>
-				<p>Enter your personal details and start journey with us</p>
+				<p>Enter your personal details and start your spectacular journey with ironfox Anime library!</p>
 				<button class="ghost" id="signUp">Sign Up</button>
 			</div>
 		</div>
 	</div>
 </div>
+
+<hr>

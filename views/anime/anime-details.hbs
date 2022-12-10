@@ -1,29 +1,54 @@
-<hr>
-<div class="w3-row">
-  <div class="w3-col m4 l3">
-    <img src="{{posterImage.original}}" class="card-img-top" alt="Anime">
-    <form method="post">
-      <button type="submit">Add to Favorites</button>
-    </form>
-  </div>
-  <div class="w3-col m8 l9">
-    <h6>Anime Details of {{canonicalTitle}}</h6>
-    <hr>
-    <p>Rating: {{averageRating}}</p>
-    <hr>
-    <p>Synopsis: {{synopsis}}</p>
-    <hr>
-    <p>Description: {{description}}</p>
-    <hr>
-    <p>Start Date: {{startDate}}</p>
-    <hr>
-    <p>End Date: {{ endDate}} </p>
-    <hr>
-    <p>Age Guide: {{ageRating}}</p>
-    <hr>
-    <p>Episode Length: {{episodeLength}} minutes</p>
-    <p>Status: {{status}}</p>
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
+  <img class="w3-image" src="https://res.cloudinary.com/dbqvnclyu/image/upload/v1670686113/WallpaperDog-20511948_cha3dw.jpg" alt="shinshan" width="1600" height="800">
+  <div class="w3-display-bottomleft w3-padding-large w3-opacity">
 
   </div>
-</div>
+</header>
+
 <hr>
+
+<!-- Anime Detail Section -->
+  <div class="w3-row w3-padding-64" id="menu">
+    <div class="w3-col l6 w3-padding-large">
+
+      <h1 class="w3-center">{{canonicalTitle}}</h1><br>
+
+      <h4>Rating ✨</h4>
+      <p class="w3-text-grey">
+        {{canonicalTitle}} has an average rating of {{averageRating}}.
+      </p><br>
+
+      <h4>Age Guide 🚸</h4>
+      <p class="w3-text-grey">
+        {{canonicalTitle}} is advised for {{ ageRatingGuide}}. Make sure if your kid is at the proper age to watch this Anime. 
+      </p><br>
+
+      <h4>Episode Information 📚 </h4>
+      <p class="w3-text-grey">
+        Each episode of {{canonicalTitle}} is {{episodeLength}}-minute long. In total, {{canonicalTitle}} up to today has {{ episodeCount}} episodes. 
+      </p><br>
+
+      <h4>Status 🎭 </h4>
+      <p class="w3-text-grey">
+        The status of {{canonicalTitle}}is {{status}}. It starts from {{startDate}} and finishes at {{endDate}}.
+      </p>  
+      
+    
+      <h4>Description 🤖 </h4>
+      <p class="w3-text-grey">{{description}}
+      </p><br>
+
+    <form method="post"> 
+      <button type="submit">Add to Favorites</button>
+    </form> 
+      
+        
+    </div>
+    
+    <div class="w3-col l6 w3-padding-large">
+      <img src="{{posterImage.original}}" class="w3-round w3-image w3-opacity-min" alt="Menu" style="width:100%">
+    </div>
+  </div>
+
+  <hr>
