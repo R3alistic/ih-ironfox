@@ -52,6 +52,8 @@ router.post('/signup', isLoggedOut, async (req, res, next) => {
 
 router.get('/profile', isLoggedIn, (req, res, next) => {
   try {
+    console.log(req);
+
     res.render('auth/profile');
   } catch (error) {
     next(error);

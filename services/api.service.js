@@ -28,10 +28,6 @@ class ApiService {
         const response =  await this.api.get(`/anime?filter[slug]=${slug}`);
         return response.data.data[0]
     }
-    // addFavorite = async () => {
-    //     const allFavorites = [];
-    //     const response = await this.api.get()
-    // }
 }
 
 module.exports = ApiService;
