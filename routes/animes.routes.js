@@ -22,7 +22,7 @@ router.get('/anime', async (req, res, next) => {
 
 router.get(`/anime/:slug`, async (req, res, next) => {
   try {
-    // console.log(req.params);
+    console.log(req);
     const animeInfo = req.params.slug;
     const response = await apiService.getAnimeDetails(animeInfo)
     const {attributes} = response

@@ -23,7 +23,8 @@ const userSchema = new Schema(
     passwordHash: {
       type: String,
       required: [true, 'password is requried']
-    }
+    },
+    favorites:[{ type: Schema.Types.ObjectId, ref: 'Favorite' }]
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`    

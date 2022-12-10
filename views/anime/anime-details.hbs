@@ -2,9 +2,13 @@
 <div class="w3-row">
   <div class="w3-col m4 l3">
     <img src="{{posterImage.original}}" class="card-img-top" alt="Anime">
-    <form method="post">
+    {{#if user}}
+    <form action="/anime/{{slug}}/favorite" method="post">
       <button type="submit">Add to Favorites</button>
     </form>
+    {{else}}
+    <p>Log in to favorite</p>
+    {{/if}}
   </div>
   <div class="w3-col m8 l9">
     <h6>Anime Details of {{canonicalTitle}}</h6>
@@ -17,13 +21,12 @@
     <hr>
     <p>Start Date: {{startDate}}</p>
     <hr>
-    <p>End Date: {{ endDate}} </p>
+    <p>End Date: {{endDate}} </p>
     <hr>
     <p>Age Guide: {{ageRating}}</p>
     <hr>
     <p>Episode Length: {{episodeLength}} minutes</p>
     <p>Status: {{status}}</p>
-
   </div>
 </div>
 <hr>

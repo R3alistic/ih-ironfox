@@ -1,5 +1,6 @@
 const { Schema, model } = require('mongoose');
 
+
 const animeSchema = new Schema({
     slug: String,
     synopsis: String,
@@ -53,7 +54,6 @@ const animeSchema = new Schema({
     { timestamps: true },
 
 );
-
 
 
 const Anime = model('Anime', animeSchema);
