@@ -24,8 +24,9 @@ class ApiService {
         }
     return allData
     }
-    getAnimeDetails = async (slug) => {
-        const response =  await this.api.get(`/anime?filter[slug]=${slug}`);
+    getSearchedAnime = async (seachedAnime) => {
+        const response =  await this.api.get(`/anime?filter[text]=${seachedAnime}`);
+        console.log(response.data.data)
         return response.data.data[0]
     }
 }

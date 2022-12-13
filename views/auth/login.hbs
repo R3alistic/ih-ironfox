@@ -1,9 +1,11 @@
 <!-- Header -->
 <header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
-  <img class="w3-image" src="https://res.cloudinary.com/dbqvnclyu/image/upload/v1670687385/WallpaperDog-20511833_bcms07.jpg" alt="shinshan" width="1600" height="800">
-  <div class="w3-display-bottomleft w3-padding-large w3-opacity">
+	<img class="w3-image"
+		src="https://res.cloudinary.com/dbqvnclyu/image/upload/v1670687385/WallpaperDog-20511833_bcms07.jpg"
+		alt="shinshan" width="1600" height="800">
+	<div class="w3-display-bottomleft w3-padding-large w3-opacity">
 
-  </div>
+	</div>
 </header>
 
 <hr>
@@ -11,14 +13,6 @@
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
 		<form class="form1" action="/login" method="post">
-			
-			<h1>Create Account Through</h1>
-			<div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-			</div>
-		
 			<span>Use your email for registration</span>
 			<input type="text" placeholder="Name" />
 			<input type="email" placeholder="Email" />
@@ -28,18 +22,13 @@
 
 	</div>
 	<div class="form-container sign-in-container">
-		<form class = "form1" action="/profile">
+		<form class="form1" action="/profile">
 			<h1>Log in</h1>
-			<div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-			</div>
-			<span>or use your account</span>
 			<input name="email" type="email" placeholder="Email" />
 			<input name="password" type="password" placeholder="Password" />
-			<a href="#">Forgot your password?</a>
-			<button>Log In</button>
+			<button>
+				<a href="/profile">Log In</a>
+			</button>
 
 			{{#if errorMessage}}
 			<p class="error">{{errorMessage}}</p>
