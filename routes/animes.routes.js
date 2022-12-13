@@ -22,7 +22,6 @@ router.get('/anime', async (req, res, next) => {
 
 router.get(`/anime/:slug`, async (req, res, next) => {
   try {
-    console.log(req);
     const animeInfo = req.params.slug;
     const response = await apiService.getAnimeDetails(animeInfo)
     const {attributes} = response
@@ -33,5 +32,18 @@ router.get(`/anime/:slug`, async (req, res, next) => {
     next(error);
   }
 });
+
+router.get('/anime/search/:slug', async (req, res, next) => {
+try{
+  console.log(req);
+  const animeName = req.params.slug;
+  const response = await apiService.getAnimeDetails(animeName);
+  const { attributes } = response;
+  res.render('anime/anime-details', attributes);
+} catch(error) {
+  console.log('error', error);
+  next(error);
+}
+})
 
 module.exports = router;
