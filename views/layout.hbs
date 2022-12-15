@@ -45,14 +45,18 @@
           </button>
         </form>
         <a href="/anime" class="w3-bar-item w3-button">Browse Anime</a>
-        <a href="/profile" class="w3-bar-item w3-button">Profile</a>
+         {{#if user}}
+        <a href="/{{user.username}}" class="w3-bar-item w3-button">Profile</a>
+        {{/if}}
         <a href="/signup" class="w3-bar-item w3-button">Sign Up</a>
         <a href="/login" class="w3-bar-item w3-button">Log In</a>
       </div>
       <div>
+        {{#if user}}
         <form action="/logout" method="post">
           <button type="submit">Logout</button>
         </form>
+        {{/if}}
       </div>
     </div>
   </div>

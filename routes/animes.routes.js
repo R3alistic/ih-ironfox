@@ -23,9 +23,8 @@ router.get('/anime', async (req, res, next) => {
 router.get(`/anime/:slug`, async (req, res, next) => {
   try {
     const animeInfo = req.params.slug;
-    const response = await apiService.getAnimeDetails(animeInfo)
+    const response = await apiService.getAnime(animeInfo)
     const {attributes} = response
-
     res.render('anime/anime-details', attributes);
   } catch (error) {
     console.log('error', error);
@@ -35,8 +34,7 @@ router.get(`/anime/:slug`, async (req, res, next) => {
 
 router.get('/anime-search', async (req, res, next) => {
 try{
-  console.log(req.query.searchedAnime);
-  const response = await apiService.getSearchedAnime(req.query.searchedAnime);
+  const response = await apiService.getAnime(req.query.searchedAnime);
   const { attributes } = response;
   res.render('anime/anime-details', attributes);
 } catch(error) {

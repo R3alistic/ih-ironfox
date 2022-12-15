@@ -31,7 +31,7 @@
 
       <h4>Status 🎭 </h4>
       <p class="w3-text-grey">
-        The status of {{canonicalTitle}}is {{status}}. It starts from {{startDate}} and finishes at {{endDate}}.
+        The status of {{canonicalTitle}} is {{status}}. It starts from {{startDate}} and finishes at {{endDate}}.
       </p>  
       
     
@@ -39,8 +39,8 @@
       <p class="w3-text-grey">{{description}}
       </p><br>
 
-    <form method="post"> 
-        <a href="/anime/{{slug}}/favorite" class="btn btn-primary">Add to Favorites</a>
+    <form action="/anime/{{slug}}/favorite" method="post"> 
+        <button class="btn btn-primary">Add to Favorites</button>
     </form> 
       
         
