@@ -1,6 +1,6 @@
 <!-- Header -->
 <header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
-  <img class="w3-image" src="https://res.cloudinary.com/dbqvnclyu/image/upload/v1670529594/7869407_jif8vp.jpg" alt="shinshan" width="1600" height="800">
+  <img class="w3-image" src="https://res.cloudinary.com/dbqvnclyu/image/upload/v1671134685/39608_jcysxe.jpg" alt="shinshan" width="1600" height="800">
   <div class="w3-display-bottomleft w3-padding-large w3-opacity">
 
   </div>
@@ -9,20 +9,59 @@
 <br>
 
 {{#if user.username}}
-<h1>Welcome, {{user.username}}</h1>
 
-<p> This is your personal page. You can see your saved favorite anmie lists</p>
+<!-- Grid -->
+  <div class="w3-row w3-container">
+    <div class="w3-center w3-padding-64">
+      <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">Welcome / bem-vindo / 欢迎光临 {{user.username}}! </span>
+    </div>
+    <div class="w3-col l3 m6 w3-light-grey w3-container w3-padding-16">
+      <h3>Topic1</h3>
+      <p>XXXX</p>
+    </div>
 
-<p>XXXX</p>
+    <div class="w3-col l3 m6 w3-grey w3-container w3-padding-16">
+      <h3>Topic2</h3>
+      <p>xxxxx</p>
+    </div>
 
-<div>
+    <div class="w3-col l3 m6 w3-dark-grey w3-container w3-padding-16">
+      <h3>Topic3</h3>
+      <p>xxxxx</p>
+    </div>
 
-enters the save favorite anime here 
+    <div class="w3-col l3 m6 w3-black w3-container w3-padding-16">
+      <h3>Topic4</h3>
+      <p>xxxxx</p>
+    </div>
+  </div>
 
+<br>
+
+<h5>This section is saved for favorite lists</h5>
+
+<br>
+
+
+<!-- Section - More Anime Please -->
+<div class="w3-container w3-light-grey" style="padding:128px 16px">
+  <div class="w3-row-padding">
+    <div class="w3-col m6">
+      <h3> XXX</h3>
+      <p>Add our web content here
+        <br>Add our web content here.</p>
+      <p><a href="/anime" class="w3-button w3-black"><i class="fa fa-th"></i> More Animes Please!</a></p>
+    </div>
+    <div class="w3-col m6">
+      <img class="w3-image w3-round-large" src="https://res.cloudinary.com/dbqvnclyu/image/upload/v1670686272/WallpaperDog-20512233_uhqs91.jpg" alt="Anime" width="700" height="394">
+    </div>
+  </div>
 </div>
+
+<br>
 
 
 
 {{else}}
-<p>Excuse me, you are not logged in yet</p>
+<p>Excuse me, you are not logged in yet 😥</p>
 {{/if}}
