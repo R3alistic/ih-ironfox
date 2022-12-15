@@ -23,7 +23,7 @@ router.get('/anime', async (req, res, next) => {
 router.get(`/anime/:slug`, async (req, res, next) => {
   try {
     const animeInfo = req.params.slug;
-    const response = await apiService.getAnimeDetails(animeInfo)
+    const response = await apiService.getSearchedAnime(animeInfo)
     const {attributes} = response
 
     res.render('anime/anime-details', attributes);
