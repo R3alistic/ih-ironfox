@@ -209,3 +209,11 @@ input {
   width: 40px;
 }
 
+.formSignup{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
