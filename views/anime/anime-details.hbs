@@ -14,34 +14,44 @@
 
       <h1 class="w3-center">{{canonicalTitle}}</h1><br>
 
-      <h4>Rating ✨</h4>
+      <h4>Rating and Popularity✨</h4>
       <p class="w3-text-grey">
-        {{canonicalTitle}} has an average rating of {{averageRating}}.
+        {{canonicalTitle}} has an average rating of {{averageRating}} and it appears to be the top #{{popularityRank}} with the public.
       </p><br>
 
       <h4>Age Guide 🚸</h4>
       <p class="w3-text-grey">
-        {{canonicalTitle}} is advised for {{ ageRatingGuide}}. Make sure if your kid is at the proper age to watch this Anime. 
+        {{canonicalTitle}} is advised for {{ ageRatingGuide}}. Make sure if your kid is at the proper age to watch this. 
       </p><br>
 
       <h4>Episode Information 📚 </h4>
       <p class="w3-text-grey">
-        Each episode of {{canonicalTitle}} is {{episodeLength}}-minute long. In total, {{canonicalTitle}} up to today has {{ episodeCount}} episodes. 
+      {{canonicalTitle}} episodes are usually {{episodeLength}}-minute long. In total, {{ episodeCount}} episodes of {{canonicalTitle}} have been released. 
       </p><br>
 
       <h4>Status 🎭 </h4>
       <p class="w3-text-grey">
-        The status of {{canonicalTitle}} is {{status}}. It starts from {{startDate}} and finishes at {{endDate}}.
+        Right now {{canonicalTitle}} is {{status}}. It first aired on {{startDate}} and its last episode aired was on {{endDate}}.
       </p>  
       
     
       <h4>Description 🤖 </h4>
       <p class="w3-text-grey">{{description}}
       </p><br>
+          {{#if user}}
+          {{#ifIn user.favorites @root.slug}}
+          
+          <h4 class="w3-text-grey">Already favorited</h4>
 
-    <form action="/anime/{{slug}}/favorite" method="post"> 
-        <button class="btn btn-primary">Add to Favorites</button>
-    </form> 
+          {{else}}
+          <form action="/anime/{{@root.slug}}/favorite" method="post"> 
+              <button class="btn btn-primary">Add to Favorites</button>
+          </form> 
+          {{/ifIn}}
+          
+          {{else}}
+            <h5>Please log in to favorite.</h5>
+          {{/if}}
       
         
     </div>

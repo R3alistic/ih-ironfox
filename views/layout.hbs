@@ -32,34 +32,60 @@
 <body>
 
   <!-- Navbar (sit on top) -->
-  <div class="w3-top">
-    <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-      <a href="/" class="w3-bar-item w3-button">Ironfox</a>
+  <nav class="w3-top">
+    <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:3px;">
+      <a href="/" class="nav-link active">Ironfox</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="/anime" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Anime
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <form action="/anime-search" id="form-inline my-2 my-lg-0" class="d-flex" method="get">
+            <input class="form-control mr-sm-2" type="text" name="searchedAnime" placeholder="Search"
+              aria-label="Search">
+            <button class="btn btn-secondary" id="search-button" type="submit">
+              Search
+            </button>
+          </form>
+        </li>
+        <li class="nav-item">
+          <a href="/login" class="w3-bar-item w3-button">Log In</a>
+        </li>
 
-      <!-- Right-sided navbar links. Hide them on small screens -->
-      <div class="w3-right w3-hide-small">
-        <form action= "/anime-search" class="d-flex" method="get">
-          <input class="form-control me-2" type="text" name="searchedAnime" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">
-            Search
-          </button>
-        </form>
-        <a href="/anime" class="w3-bar-item w3-button">Browse Anime</a>
-         {{#if user}}
+        {{#if user.username}}
+        <li class="nav-item">
+          <form action="/logout" method="post" class="form-control mr-sm-2">
+            <button type="submit">Logout</button>
+          </form>
+        </li>
+        {{/if}}
+      </ul>
+      {{#if user.username}}
+      <li class="nav-item">
         <a href="/{{user.username}}" class="w3-bar-item w3-button">Profile</a>
-        {{/if}}
-        <a href="/signup" class="w3-bar-item w3-button">Sign Up</a>
-        <a href="/login" class="w3-bar-item w3-button">Log In</a>
-      </div>
-      <div>
-        {{#if user}}
-        <form action="/logout" method="post">
-          <button type="submit">Logout</button>
-        </form>
-        {{/if}}
-      </div>
+      </li>
+      {{/if}}
+      {{#unless user.username}}
+      <li class="nav-item">
+      <a href="/signup" class="w3-bar-item w3-button">Sign Up</a>
+      </li>
+      {{/unless}}
     </div>
-  </div>
+    </div>
+  </nav>
 
 
 
@@ -73,11 +99,13 @@
   <!-- Footer -->
 
   <footer class="w3-center w3-light-grey w3-padding-32">
-    <p>Ironfox is developed by Rian Yan 
-      <img src="https://res.cloudinary.com/dbqvnclyu/image/upload/v1671137344/download_tlqkj2.png" alt="github" width="20px" height="auto">
+    <p>Ironfox is developed by Rian Yan
+      <img src="https://res.cloudinary.com/dbqvnclyu/image/upload/v1671137344/download_tlqkj2.png" alt="github"
+        width="20px" height="auto">
       <a href="https://github.com/rianyan9723" target="_blank" class="w3-hover-text-green"> rianyan9723</a>
-      and Alexandre Cunha 
-       <img src="https://res.cloudinary.com/dbqvnclyu/image/upload/v1671137344/download_tlqkj2.png" alt="github" width="20px" height="auto">
+      and Alexandre Cunha
+      <img src="https://res.cloudinary.com/dbqvnclyu/image/upload/v1671137344/download_tlqkj2.png" alt="github"
+        width="20px" height="auto">
       <a href="https://github.com/R3alistic" target="_blank" class="w3-hover-text-green">R3alistic</a>
       <br>
       <br>

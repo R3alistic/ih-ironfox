@@ -6,8 +6,8 @@ const Favorite = require('../models/Favorite.model');
 const User = require('../models/User.model');
 const ApiService = require('../services/api.service');
 const apiService = new ApiService();
-const isLoggedIn  = require('../middleware/isLoggedIn.js');
-const  isLoggedOut  = require('../middleware/isLoggedOut.js');
+const isLoggedIn = require('../middleware/isLoggedIn.js');
+const isLoggedOut = require('../middleware/isLoggedOut.js');
 
 
 
@@ -17,19 +17,46 @@ router.post('/anime/:slug/favorite', isLoggedIn, async (req, res, next) => {
 
         const favoriteDetails = await apiService.getAnime(req.params.slug)
 
-        const {attributes} = favoriteDetails
+        const { attributes } = favoriteDetails
 
-        const newFavorite = await Favorite.create({
-            slug: attributes.slug,
-            titles: {en: attributes.titles.en, en_jp: attributes.titles.en_jp },
-            posterImage: {large: attributes.posterImage.large, medium: attributes.posterImage.medium}
-        })        
+        let favorite = await Favorite.findOne({slug: attributes.slug})
+
+        if(!favorite) {
+
+            favorite = await Favorite.create({
+                slug: attributes.slug,
+                titles: { en: attributes.titles.en, en_jp: attributes.titles.en_jp },
+                canonicalTitle: attributes.canonicalTitle,
+                popularityRank: attributes.popularityRank,
+                posterImage: { large: attributes.posterImage.large, medium: attributes.posterImage.medium }
+            })
+        }
+
+
         const updatedUser = await User.findByIdAndUpdate(req.user._id, {
             $push: {
-                favorites: newFavorite._id
+                favorites: favorite._id
             }
-        }, {new: true})
+        }, { new: true })
         res.redirect('/profile')
+    } catch (error) {
+        console.log('error', error);
+        next(error);
+    }
+})
+
+router.post('/anime/:slug/favorite/delete', isLoggedIn, async (req, res, next) => {
+    try {
+const {slug} = req.params     
+
+        const favorite = await Favorite.findOne({slug})
+
+        const updatedUser = await User.findByIdAndUpdate(req.user._id, {
+            $pull: {
+                favorites: favorite._id
+            }
+        }, { new: true })
+        res.redirect('/profile');
     } catch (error) {
         console.log('error', error);
         next(error);
@@ -38,13 +65,13 @@ router.post('/anime/:slug/favorite', isLoggedIn, async (req, res, next) => {
 
 router.get('/:username', isLoggedIn, async (req, res, next) => {
     try {
-      const user = await User.findById(req.user._id).populate('favorites')
-      console.log(user)
-  
-      res.render('auth/profile', user);
+        const user = await User.findById(req.user._id).populate('favorites')
+        console.log(user)
+
+        res.render('auth/profile', user);
     } catch (error) {
-      next(error);
+        next(error);
     }
-  });
+});
 
 module.exports = router

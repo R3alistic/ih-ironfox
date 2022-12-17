@@ -15,6 +15,17 @@ const hbs = require("hbs");
 const kitsu = require('kitsu');
 const app = express();
 
+hbs.registerHelper('ifIn', (array, element, options) => {
+   const exists = array.find(el => {
+       return el.slug === element
+    })
+
+    if(exists) {
+      return options.fn(this);
+    }
+    return options.inverse(this);
+  });
+
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require("./config")(app);
 require('./config/session.config')(app);

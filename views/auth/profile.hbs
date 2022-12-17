@@ -1,7 +1,7 @@
 <!-- Header -->
 <header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
   <img class="w3-image" src="https://res.cloudinary.com/dbqvnclyu/image/upload/v1671134685/39608_jcysxe.jpg"
-    alt="shinshan" width="1600" height="800">
+    alt="shinshan" width="1600" height="500">
   <div class="w3-display-bottomleft w3-padding-large w3-opacity">
 
   </div>
@@ -14,65 +14,64 @@
 <!-- Grid for content -->
 <div class="w3-row w3-container">
   <div class="w3-center w3-padding-64">
-    <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">Welcome / bem-vindo / 欢迎光临 !
+    <span class="w3-xlarge w3-bottombar w3-border-dark-grey w3-padding-16">Welcome / Bem-vindo / 欢迎光临 !
     </span>
   </div>
- 
-<br>
+
+  <br>
 
 
-<div class="row">
+  <h2>Anime Library</h2>
+  <div class="row">
+    {{#each favorites}}
 
-  {{#each favorites}}
+    <div class="card m-2" style="width: 15rem;">
+      <img src="{{posterImage.large}}" class="card-img-top" alt="Anime">
+      <div class="card-body">
+        <h5 class="card-title">{{canonicalTitle}}</h5>
+        <a href="/anime/{{slug}}" class="btn btn-primary">See details</a>
+        <form action="/anime/{{slug}}/favorite/delete" method="post">
+          <button type="submit">Delete Favorite</button>
+        </form>
+      </div>
+    </div>
 
-  <div class="card m-2" style="width: 15rem;">
-    <img src="{{posterImage.large}}" class="card-img-top" alt="Anime">
-    <div class="card-body">
-      <h5 class="card-title">{{titles.en}}</h5>
-      <p class="card-text">{{titles.ja_jp}}</p>
-      <a href="/anime/{{slug}}" class="btn btn-primary">See details</a>
+    {{/each}}
+  </div>
+  <br>
+
+
+  <!-- Section - More Anime Please -->
+  <div class="w3-container w3-light-grey" style="padding:128px 16px">
+    <div class="w3-row-padding">
+      <div class="w3-col m6">
+        <h3> Arigato {{user.username}}!</h3>
+        <p> Are you enjoying our website? 🤗
+          <br>
+          <br>
+          If you want to go back to keep browsing anime🤔
+          <br>
+          <br>
+          Click the button below ⬇️
+          <br>
+          <br>
+          And continue your anime journey with Ironfox! 🔥
+
+        </p>
+        <p><a href="/anime" class="w3-button w3-black"><i class="fa fa-th"></i> More Animes Please!</a></p>
+      </div>
+      <div class="w3-col m6">
+        <img class="w3-image w3-round-large"
+          src="https://res.cloudinary.com/dbqvnclyu/image/upload/v1670686272/WallpaperDog-20512233_uhqs91.jpg"
+          alt="Anime" width="700" height="394">
+      </div>
     </div>
   </div>
 
-  {{/each}}
-</div>
-<br>
-
-
-<!-- Section - More Anime Please -->
-<div class="w3-container w3-light-grey" style="padding:128px 16px">
-  <div class="w3-row-padding">
-    <div class="w3-col m6">
-      <h3> Arigato {{user.username}}!</h3>
-      <p> Are you enjoying our website? 🤗
-        <br>
-        <br>
-        Remember you can delete the anime from your favoirte list 📖
-        <br>
-        <br>
-        If you want to go back to keep browsing animes 🤔
-        <br>
-        <br>
-        Click the button below ⬇️
-        <br>
-        <br>
-        And keep your anime journey with Ironfox! 🔥
-    
-      </p>
-      <p><a href="/anime" class="w3-button w3-black"><i class="fa fa-th"></i> More Animes Please!</a></p>
-    </div>
-    <div class="w3-col m6">
-      <img class="w3-image w3-round-large"
-        src="https://res.cloudinary.com/dbqvnclyu/image/upload/v1670686272/WallpaperDog-20512233_uhqs91.jpg" alt="Anime"
-        width="700" height="394">
-    </div>
-  </div>
-</div>
-
-<br>
+  <br>
 
 
 
-{{else}}
-<p>Excuse me, you are not logged in yet 😥. Please log in first. If you don't have an account, please sign up!</p>
-{{/if}}
+  {{else}}
+  <p>Excuse me, you are not logged in yet 😥. Please log in first. If you don't have an account, please sign up!</p>
+  {{/if}}

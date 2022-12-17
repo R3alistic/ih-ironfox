@@ -7,6 +7,8 @@ const favoriteSchema = new Schema({
         en: String,
         en_jp: String,
     },
+    canonicalTitle : String,
+    popularityRank : String,
     posterImage: {
         tiny: String,
         small: String,
