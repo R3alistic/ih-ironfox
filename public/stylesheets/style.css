@@ -23,7 +23,7 @@ a {
   color: #333;
   font-size: 14px;
   text-decoration: none;
-  margin: 15px 0;
+  margin: 15px 10px;
 }
 
 button {
@@ -63,11 +63,11 @@ button.ghost {
   text-align: center;
 }
 
-input {
+#search-bar, #input-login {
   background-color: #eee;
   border: none;
   padding: 12px 15px;
-  margin: 8px 0;
+  margin: 10px 10px;
   width: 100%;
 }
 
@@ -221,3 +221,29 @@ input {
   max-width: 50px;
 }
 
+#logout{
+  padding: 8px 16px;
+  margin: 15px;
+  float: right;
+  width: auto;
+  border: none;
+  display: block;
+  outline: 0;
+  letter-spacing: 3px;
+}
+
+#logout-form {
+  padding: 0px;
+  margin: 0px;
+}
+
+#logo {
+  padding:0px;
+  margin:0px;
+  box-shadow: none;
+}
+
+#navdiv, #search-form {
+  padding: 0px 0px;
+  margin: 0px 20px;
+}

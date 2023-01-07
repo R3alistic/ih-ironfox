@@ -31,45 +31,32 @@
 
 <body>
 
-<!-- Navbar (sit on top) -->
-<div class="w3-top">
-  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
-    <!--
-      <img src="https://res.cloudinary.com/dbqvnclyu/image/upload/v1673092776/fox_007_zwjdka.png" class="w3-bar-item w3-button" alt="FoxImg" width="30px">
-      -->
-    <a href="/" class="w3-bar-item w3-button">Ironfox</a>
-    <a href="/anime" class="w3-bar-item w3-button">Anime</a>
-    <a href="/login" class="w3-bar-item w3-button">Log in</a>
-
-    <form action="/anime-search" class="w3-right w3-hide-small" method="get">
-            <input class="form-control mr-sm-2" type="text" name="search" placeholder="🔍  Search Anime"
-              aria-label="Search">
-    </form>
-
-    {{#if user.username}}
-
-        <a href="/{{user.username}}" class="w3-bar-item w3-button">Profile</a>
-
+  <!-- Navbar (sit on top) -->
+  <div class="w3-top">
+    <div class="w3-bar w3-white w3-card" style="letter-spacing:4px;">
+      <a href="/" class="w3-bar-item w3-button" id="logo">
+        <img src="https://res.cloudinary.com/dvncucx9s/image/upload/v1673101564/foxicon_rnw26y.png"
+          class="w3-bar-item w3-button" alt="FoxImg">
+      </a>
+      <a href="/anime" class="w3-bar-item w3-button">Anime</a>
+      <a href="/login" class="w3-bar-item w3-button">Log in</a>
+      <form action="/anime-search" class="w3-right" method="get" id="search-form">
+        <input class="form-control mr-sm-2" type="text" name="search" id="search-bar" placeholder="🔍  Search Anime"
+          aria-label="Search">
+      </form>
+      {{#if user.username}}
+      <a href="/{{user.username}}" class="w3-bar-item w3-button">Profile</a>
       {{/if}}
-
-
-    {{#if user.username}}
-  
-          <form action="/logout" method="post">
-            <button type="submit" class="w3-bar-item w3-button">Logout</button>
-          </form>
- 
-        {{/if}}
-     
-
-    {{#unless user.username}}
-
+      {{#if user.username}}
+      <form action="/logout" method="post" id="logout-form" class="w3-right w3-hide-small">
+        <input type="submit" value="Sign Out" id="logout" class="w3-right w3-hide-small">
+      </form>
+      {{/if}}
+      {{#unless user.username}}
       <a href="/signup" class="w3-bar-item w3-button">Sign Up</a>
-    
       {{/unless}}
-
+    </div>
   </div>
-</div>
 
 
   <!-- content in other hbs files--->
@@ -92,7 +79,7 @@
       <a href="https://github.com/R3alistic" target="_blank" class="w3-hover-text-green">R3alistic</a>
       <br>
       <br>
-      Ironhack project 2
+      Ironhack Project 2
     </p>
   </footer>
 
