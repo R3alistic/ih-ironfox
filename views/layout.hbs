@@ -31,62 +31,45 @@
 
 <body>
 
-  <!-- Navbar (sit on top) -->
-  <nav class="w3-top">
-    <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:3px;">
-      <a href="/" class="nav-link active">Ironfox</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="/anime" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Anime
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <form action="/anime-search" id="form-inline my-2 my-lg-0" class="d-flex" method="get">
-            <input class="form-control mr-sm-2" type="text" name="searchedAnime" placeholder="Search"
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;">
+    <!--
+      <img src="https://res.cloudinary.com/dbqvnclyu/image/upload/v1673092776/fox_007_zwjdka.png" class="w3-bar-item w3-button" alt="FoxImg" width="30px">
+      -->
+    <a href="/" class="w3-bar-item w3-button">Ironfox</a>
+    <a href="/anime" class="w3-bar-item w3-button">Anime</a>
+    <a href="/login" class="w3-bar-item w3-button">Log in</a>
+
+    <form action="/anime-search" class="w3-right w3-hide-small" method="get">
+            <input class="form-control mr-sm-2" type="text" name="search" placeholder="🔍  Search Anime"
               aria-label="Search">
-            <button class="btn btn-secondary" id="search-button" type="submit">
-              Search
-            </button>
-          </form>
-        </li>
-        <li class="nav-item">
-          <a href="/login" class="w3-bar-item w3-button">Log In</a>
-        </li>
+    </form>
 
-        {{#if user.username}}
-        <li class="nav-item">
-          <form action="/logout" method="post" class="form-control mr-sm-2">
-            <button type="submit">Logout</button>
-          </form>
-        </li>
-        {{/if}}
-      </ul>
-      {{#if user.username}}
-      <li class="nav-item">
+    {{#if user.username}}
+
         <a href="/{{user.username}}" class="w3-bar-item w3-button">Profile</a>
-      </li>
-      {{/if}}
-      {{#unless user.username}}
-      <li class="nav-item">
-      <a href="/signup" class="w3-bar-item w3-button">Sign Up</a>
-      </li>
-      {{/unless}}
-    </div>
-    </div>
-  </nav>
 
+      {{/if}}
+
+
+    {{#if user.username}}
+  
+          <form action="/logout" method="post">
+            <button type="submit" class="w3-bar-item w3-button">Logout</button>
+          </form>
+ 
+        {{/if}}
+     
+
+    {{#unless user.username}}
+
+      <a href="/signup" class="w3-bar-item w3-button">Sign Up</a>
+    
+      {{/unless}}
+
+  </div>
+</div>
 
 
   <!-- content in other hbs files--->
