@@ -38,7 +38,7 @@ class ApiService {
     }
     searchAnime = async (searchedAnime) => {
         const response = await this.api.get(`/anime?filter[text]=${searchedAnime}&page[limit]=10`);
-        // console.log(response.data.data);
+        console.log(response.data.data);
         return response.data.data
     }
     getAnime = async (animeSlug) => {
